@@ -1,0 +1,24 @@
+language: Turkish
+
+
+basit bir kontrol scripti yaz ve animasyonları uygula
+
+
+envanter:
+	scriptable object: 
+		1. humanbodybones objenin ekleneceği avatar kısmı
+		2. objenin konacağı konum
+	manager:
+		transform (objenin ekleneceği avatar kısmından kemiğin transformu) → (instantiate ile istenen objeyi, karakterde, objenin 		konacağı kısıma ata)
+
+------------------------------------------------------------------------------------------------------------
+
+moving controller:
+	1. animasyon üzerinden yapılacak
+	2. ani hareketler yerine o 1'e yaklaşacak
+	3. global input system kullanılacak
+	4. zıplama da global olacak
+
+------------------------------------------------------------------------------------------------------------
+
+fair model'i alıp ana dosyaların içine ekleyelim
