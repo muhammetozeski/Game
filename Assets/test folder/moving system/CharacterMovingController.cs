@@ -7,15 +7,31 @@ namespace MainGame.Player
 {
     public class CharacterMovingController : MonoBehaviour
     {
+        [SerializeField] Animator animator;
+
         [Header("Debug Purpose:")]
         [SerializeField] bool _characterShouldTurnRight;
         [SerializeField] float _characterShouldTurnToThisDegree;
         [SerializeField] float _differenceBetweenAngles;
 
         Transform _Camera;
+
+        #region Animator Parameters
+        int AnimatorParameterID_X;
+        int AnimatorParameterID_Y;
+        #endregion
+
         private void Awake()
         {
+            this.animator = gameObject.GetComponent<Animator>();
             _Camera = Camera.main.transform;
+
+            signAllAnimatorParameters();
+        }
+        void signAllAnimatorParameters()
+        {
+            AnimatorParameterID_X = Animator.StringToHash("X");
+            AnimatorParameterID_Y = Animator.StringToHash("Y");
         }
         public void MoveManager(float horizontal, float vertical)
         {
@@ -34,6 +50,8 @@ namespace MainGame.Player
             {
                 testAnimations(characterShouldTurnRight);
             }
+            else
+                animator.SetFloat(AnimatorParameterID_Y, vertical);
         }
 
         float desiredCameraAngle(Transform _camera, float horizontal, float vertical)
@@ -50,16 +68,11 @@ namespace MainGame.Player
         void testAnimations(bool turnRight)
         {
             if (turnRight)
-                transform.Rotate(Vector3.up);
+                animator.SetFloat(AnimatorParameterID_X, 1);
+            // transform.Rotate(Vector3.up);
             else
-                transform.Rotate(-Vector3.up);
-        }
-
-        //test purpose:
-        private void Update()
-        {
-            print(_Camera.eulerAngles);
-
+                animator.SetFloat(AnimatorParameterID_X, -1);
+              //  transform.Rotate(-Vector3.up);
         }
     }
 }
