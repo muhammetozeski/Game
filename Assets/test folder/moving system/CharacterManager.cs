@@ -8,6 +8,11 @@ namespace MainGame.Player
     {
         [SerializeField] AbstractInputData MovingInput;
         [SerializeField] CharacterMovingController MovingControllerScript;
+
+        [Header("Manual Input: (Debug Purpose)")]
+        [SerializeField] bool openDebugMod = false;
+        [SerializeField] float Horizontal;
+        [SerializeField] float Vertical;
         // Start is called before the first frame update
         void Start()
         {
@@ -17,9 +22,19 @@ namespace MainGame.Player
         // Update is called once per frame
         void Update()
         {
-            if (MovingInput.Horizontal != 0 || MovingInput.Vertical != 0)
+            if (openDebugMod)
             {
-                MovingControllerScript.MoveManager(MovingInput.Horizontal, MovingInput.Vertical);
+                if (Horizontal != 0 || Vertical != 0)
+                {
+                    MovingControllerScript.MoveManager(Horizontal, Vertical);
+                }
+            }
+            else
+            {
+                if (MovingInput.Horizontal != 0 || MovingInput.Vertical != 0)
+                {
+                    MovingControllerScript.MoveManager(MovingInput.Horizontal, MovingInput.Vertical);
+                }
             }
         }
     }

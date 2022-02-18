@@ -7,6 +7,11 @@ namespace MainGame.Player
 {
     public class CharacterMovingController : MonoBehaviour
     {
+        [Header("Debug Purpose:")]
+        [SerializeField] bool _characterShouldTurnRight;
+        [SerializeField] float _characterShouldTurnToThisDegree;
+        [SerializeField] float _differenceBetweenAngles;
+
         Transform _Camera;
         private void Awake()
         {
@@ -15,10 +20,17 @@ namespace MainGame.Player
         public void MoveManager(float horizontal, float vertical)
         {
             float characterShouldTurnToThisDegree = desiredCameraAngle(_Camera, horizontal, vertical);
-            float differenceBetweenAngles =characterShouldTurnToThisDegree - Mathf.Abs (transform.eulerAngles.y%360);
-
-            bool characterShouldTurnRight = differenceBetweenAngles < 180 && differenceBetweenAngles > 0;
-            if (!(Mathf.Abs(differenceBetweenAngles) > 0 && Mathf.Abs(differenceBetweenAngles) < 1))
+            characterShouldTurnToThisDegree = Mathf.Round(characterShouldTurnToThisDegree);
+            _characterShouldTurnToThisDegree = characterShouldTurnToThisDegree;
+            float differenceBetweenAngles =
+                (characterShouldTurnToThisDegree - Mathf.Abs(transform.eulerAngles.y)) -
+                (characterShouldTurnToThisDegree - Mathf.Abs(transform.eulerAngles.y)) % 1
+                ;
+            _differenceBetweenAngles = differenceBetweenAngles;
+            bool characterShouldTurnRight = differenceBetweenAngles < 180 && differenceBetweenAngles > 0
+                || differenceBetweenAngles < -180 && differenceBetweenAngles > -360;
+            _characterShouldTurnRight = characterShouldTurnRight;
+            if (!(Mathf.Abs(differenceBetweenAngles) == 0))
             {
                 testAnimations(characterShouldTurnRight);
             }
@@ -29,19 +41,25 @@ namespace MainGame.Player
             float ac; //angle of camera
             ac = _camera.eulerAngles.y;
             ac = Mathf.Abs(ac);
-            ac %=360;
 
-            float desiredAngle = ac + 
+            float desiredAngle = ac +
                 a_Vector2toAngle(horizontal, vertical);
-            return desiredAngle%360;
+            return desiredAngle % 360;
         }
 
         void testAnimations(bool turnRight)
         {
             if (turnRight)
-                transform.eulerAngles += Vector3.up;
+                transform.Rotate(Vector3.up);
             else
-                transform.eulerAngles += -Vector3.up;
+                transform.Rotate(-Vector3.up);
+        }
+
+        //test purpose:
+        private void Update()
+        {
+            print(_Camera.eulerAngles);
+
         }
     }
 }
