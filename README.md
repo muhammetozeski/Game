@@ -5,7 +5,7 @@ a Medieval RPG game in unity
 
 
 Sun is up demo:
-https://user-images.githubusercontent.com/51961772/183011992-a7d43117-e49a-4751-907f-eb117963f02a.mp4
+[Watch the video]https://user-images.githubusercontent.com/51961772/183011992-a7d43117-e49a-4751-907f-eb117963f02a.mp4
 ![2022-08-03 01 16 47](https://user-images.githubusercontent.com/51961772/183012173-98a36f38-e05c-4f79-a232-c9a1d88ac7f8.png)
 
 ![2022-08-03 01 55 25](https://user-images.githubusercontent.com/51961772/183012099-bc3b8cf9-5ca3-468d-93a9-68f6fd2a7b71.png)
