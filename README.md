@@ -6,6 +6,7 @@ a Medieval RPG game in unity
 
 Sun is up demo:
 [Watch the video](https://user-images.githubusercontent.com/51961772/183011992-a7d43117-e49a-4751-907f-eb117963f02a.mp4)
+Less quality gif: ![sun is up](https://user-images.githubusercontent.com/51961772/183015979-3e6f4a67-3f17-40d3-a9f7-54b42e622614.gif)
 ![2022-08-03 01 16 47](https://user-images.githubusercontent.com/51961772/183012173-98a36f38-e05c-4f79-a232-c9a1d88ac7f8.png)
 
 ![2022-08-03 01 55 25](https://user-images.githubusercontent.com/51961772/183012099-bc3b8cf9-5ca3-468d-93a9-68f6fd2a7b71.png)
