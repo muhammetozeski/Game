@@ -1,5 +1,5 @@
 # Game
-a Medieval RPG game in unity
+A Medieval RPG game in unity. There is no playable content yet but with your helps, we can improve it together :)
 
 # Screenshots And Videos
 
