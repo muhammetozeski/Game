@@ -7,6 +7,7 @@ Still I didn't decide to game name
 
 Sun is up demo:
 [Watch the video](https://user-images.githubusercontent.com/51961772/183011992-a7d43117-e49a-4751-907f-eb117963f02a.mp4)
+
 Less quality gif: 
 
 ![sun is up](https://user-images.githubusercontent.com/51961772/183015979-3e6f4a67-3f17-40d3-a9f7-54b42e622614.gif)
